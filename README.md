@@ -46,7 +46,6 @@ Here's a walkthrough of implemented user stories:
 
 ![Video Walkthrough](http://i.imgur.com/pADfUzq.gifv)
 
-
 ## Notes
 
 Describe any challenges encountered while building the app.
