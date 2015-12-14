@@ -6,15 +6,26 @@ class MessagesController < ApplicationController
   end
 
   def create
-    if params[:message][:receiver_id].empty?
+    receivers = params[:message][:receiver_id] ? params[:message][:receiver_id].compact.reject {|item| item.empty? } : []
+    unless receivers.any?
       redirect_to new_message_path, flash: {error: "You should choose your friend to send message."}
     else
-      @message = Message.new(message_params)
-      if @message.save
-        redirect_to root_path , flash: {success: "Your message has been sent."}
-      else
-        redirect_to new_message_path, flash: {error: "Something goes wrong. Oops!"}
+      receivers.each do |receiver|
+        message = Message.new(message_params)
+        message.receiver_id = receiver
+        unless message.save
+          redirect_to new_message_path, flash: {error: "Something goes wrong. Oops!"}
+        end
       end
+      redirect_to root_path , flash: {success: "Your message has been sent."}
+
+      #
+      # message = Message.new(message_params)
+      # if @message.save
+      #   redirect_to root_path , flash: {success: "Your message has been sent."}
+      # else
+      #   redirect_to new_message_path, flash: {error: "Something goes wrong. Oops!"}
+      # end
     end
   end
 
@@ -43,7 +54,7 @@ class MessagesController < ApplicationController
   private
 
   def message_params
-    params.require(:message).permit(:receiver_id, :content, :sender_id, :read)
+    params.require(:message).permit(:content, :sender_id, :read)
   end
 
 end

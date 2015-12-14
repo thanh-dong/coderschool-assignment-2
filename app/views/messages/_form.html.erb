@@ -2,7 +2,7 @@
     <div class="form-group">
       <div class="form-group">
         <label class="control-label">Send message to</label>
-          <%= f.select(:receiver_id, {}, {prompt: "Select your friend(s) to send message"}, {:class => 'form-control'}) do%>
+          <%= f.select(:receiver_id, {}, {prompt: "Select your friend(s) to send message"}, {:multiple => true, :class => 'form-control'}) do%>
             <% if @available_receiver.count > 0 %>
               <% @available_receiver.each do |receiver| %>
                 <%= content_tag(:option, "#{receiver.name} (email: #{receiver.email})", value: receiver.id) %>
