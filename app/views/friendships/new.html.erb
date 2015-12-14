@@ -1,0 +1,11 @@
+<%= form_for(Friendship.new, html: {class: "form-signin"})  do |f| %>
+  <%=f.select(:friend_b_id, {}, {}, {:multiple => true, :class => 'form-control'}) do%>
+    <% if @available_user.count > 0 %>
+      <% @available_user.each do |user| %>
+        <%= content_tag(:option, "#{user.name} (email: #{user.email})", value: user.id) %>
+      <% end %>
+    <% end %>
+  <% end %>
+  <%= f.submit 'Add', class: 'btn btn-block btn-success' %>
+  <%= link_to 'Cancel', root_path , class: "btn btn-block btn-danger" %>
+<% end %>

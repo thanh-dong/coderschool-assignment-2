@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Coderchat</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+  <%= flash_messages %>
+  <div class="site-wrapper">
+    <div class="site-wrapper-inner">
+      <div class="cover-container">
+        <div class="masthead clearfix">
+          <div class="inner">
+            <h3 class="masthead-brand">Coder Chat</h3>
+            <nav class="nav nav-masthead">
+              <%= link_to 'Home', root_path, class: "nav-link active"%>
+              <% unless sign_in? %>
+                <%= link_to 'Sign In', sign_in_path, class: "nav-link"%>
+                <%= link_to 'Sign Up', sign_up_path, class: "nav-link"%>
+              <% else %>
+                <%= link_to 'Sign Out', sign_out_path, class: "nav-link" %>
+              <% end %>
+            </nav>
+          </div>
+        </div>
+
+    <%= yield %>
+
+        <div class="mastfoot">
+          <div class="inner">
+            <p>Private chat with fun.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

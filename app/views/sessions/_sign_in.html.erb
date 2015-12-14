@@ -1,0 +1,6 @@
+<%= form_for(User.new, url: authenticate_path, html: {class: "form-signin"})  do |f| %>
+  <h2 class="form-signin-heading">Sign in</h2>
+    <%= f.text_field 'email', class: 'form-control', placeholder: 'Your E-mail'%>
+    <%= f.password_field 'password', class: 'form-control', placeholder: 'Password' %>
+    <%= f.submit 'Login', class: 'btn btn-block btn-info' %>
+<% end %>

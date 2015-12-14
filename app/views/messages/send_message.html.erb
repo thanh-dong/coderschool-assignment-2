@@ -1,0 +1,18 @@
+
+<ul class="list-group">
+  <% @sent_messages.each do |message| %>
+    <li class="list-group-item message-title <%=' list-group-item-warning' unless message.read%>">
+      <% if message.read %>
+        <span class="label label-default label-pill pull-right">was read <%= message.read_at.strftime("on %d/%m/%Y at %I:%M%p")%></span>
+      <% else %>
+        <span class="label label-default label-pill pull-right"> unread </span>
+      <% end %>
+      To: <%=message.receiver.name%>
+    </li>
+  <% end %>
+</ul>
+
+<div class="action-bar">
+  <%= link_to 'New Message', new_message_path , class: "btn btn-secondary" %>
+  <%= link_to 'Back', root_path , class: "btn btn-secondary" %>
+</div>

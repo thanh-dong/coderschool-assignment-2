@@ -1,0 +1,9 @@
+<% if message.read %>
+  <a href="#" class="message list-group-item disabled" data-toggle="tooltip" data-placement="right" title="was read at <%= message.read_at.strftime("on %d/%m/%Y at %I:%M%p")%>">
+    A message from <%= message.sender.name %>
+  </a>
+<% else %>
+  <a href=<%=message_path message%> class="message unread list-group-item list-group-item-success">
+    A message from <%= message.sender.name %>
+  </a>
+<% end %>

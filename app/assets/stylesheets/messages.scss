@@ -1,0 +1,17 @@
+.message {
+  text-align: left !important;
+  text-shadow: none;
+}
+.message.unread {
+  font-weight: bold;
+}
+
+.action-bar {
+  margin-top: 10px;
+}
+.message-content, .message-title {
+  color: black;
+  text-align: left;
+  text-shadow: none;
+
+}

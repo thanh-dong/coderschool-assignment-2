@@ -1,0 +1,6 @@
+<div class="card card-block">
+  <h4 class="card-title message-title"><%= @message.sender.name%> said:</h4>
+  <p class="card-text message-content"><%= @message.content%></p>
+  <%= link_to 'Back', messages_path(receiver_id: session[:user_id]), class: "btn btn-primary" %>
+  <%= link_to 'Reply', new_message_path, class: "btn btn-primary" %>
+</div>

@@ -1,0 +1,11 @@
+@import "bootstrap";
+@import "welcome";
+@import "users";
+@import "messages";
+
+.alert {
+  position: fixed;
+  width: 20%;
+  top: 10px;
+  right: 10px;
+}
