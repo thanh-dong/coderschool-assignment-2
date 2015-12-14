@@ -6,7 +6,7 @@ Submitted by: **Thanh Dong**
 
 Time spent: **10** hours
 
-URL: **Insert your Heroku URL here**
+URL: **https://thanh-assignment-2.herokuapp.com/**
 
 ## User Stories
 
