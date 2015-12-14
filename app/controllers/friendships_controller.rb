@@ -25,7 +25,7 @@ class FriendshipsController < ApplicationController
         friendship_a.save
         friendship_b.save
       end
-      redirect_to root_path
+      redirect_to root_path, flash: {success: "You have added new friend(s)"}
     end
 
   end
